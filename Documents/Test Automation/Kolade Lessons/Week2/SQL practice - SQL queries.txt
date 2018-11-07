@@ -1,0 +1,78 @@
+-- Select
+-- Insert into
+-- Update
+-- Delete
+
+create database Testing
+
+use Testing
+
+create table Customer
+(
+CustomerID integer primary key identity(1,1),
+CustomerFirstName varchar(30) not null,
+CustomerLastname varchar(30) not null,
+CustomerAddress varchar(50) not null,
+CustomerCity varchar(50)
+);
+
+create table ItemOrder
+(
+OrderID integer primary key identity(50,1),
+ItemName varchar(20) not null,
+ItemPrice money,
+CustomerID integer not null foreign key references Customer(CustomerID)
+);
+
+-- Select statement
+select * from Customer
+select * from ItemOrder
+
+-- Insert into statement
+insert into Customer(CustomerFirstName, CustomerLastname, CustomerAddress, CustomerCity)
+values('Bisi','Ola','East Croydon', 'London')
+
+insert into Customer(CustomerFirstName, CustomerLastname, CustomerAddress, CustomerCity)
+values('Temi','Lola','Dartford', 'Kent')
+
+insert into Customer(CustomerFirstName, CustomerLastname, CustomerAddress, CustomerCity)
+values('Zina','Niba','Erith', 'Kent')
+
+insert into ItemOrder(ItemName, ItemPrice, CustomerID)
+values('Mouse',20,1);
+
+insert into ItemOrder(ItemName, ItemPrice, CustomerID)
+values('Wireless Keyboard',28,1);
+
+insert into ItemOrder(ItemName, ItemPrice, CustomerID)
+values('Tom Ford Perfume',85,2);
+
+
+--update statement
+update ItemOrder
+set ItemName = 'Wireless Mouse'
+where OrderID = 52;
+
+-- delete a customer with no order history
+delete from Customer
+where CustomerID = 5;
+
+-- delete a customer with an order history
+delete from ItemOrder where CustomerID = 2;
+delete from Customer where CustomerID = 2;
+
+select * from Customer
+select * from ItemOrder
+
+--inner join
+Select * from Customer
+inner join ItemOrder on Customer.CustomerID = ItemOrder.CustomerID;
+
+--right join
+Select * from Customer
+right join ItemOrder on Customer.CustomerID = ItemOrder.CustomerID;
+
+--left join
+Select * from Customer
+left join ItemOrder on Customer.CustomerID = ItemOrder.CustomerID;
+

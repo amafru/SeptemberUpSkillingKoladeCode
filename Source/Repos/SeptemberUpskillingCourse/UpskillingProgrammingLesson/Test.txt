@@ -1,0 +1,4 @@
+What is Method overriding ?
+ 
+Creating the method in a derived class with same name, same parameters and same return type as in base class is called as method overriding.
+Method overriding is the example of run time polymorphism,how its is the part of run time polymorphism i will explain in detail.

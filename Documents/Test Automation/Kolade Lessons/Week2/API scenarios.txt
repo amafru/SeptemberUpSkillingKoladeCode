@@ -1,0 +1,52 @@
+Scenario: Verify that a user can fetch a project records
+Given that Task Management System is loaded
+When a user carry out GET request
+Then an existing Project records are retrieved as expected
+And the status code should be equal to 200 OK
+And the response time should be less or equal to 500ms
+
+Note (pre-requisite): For 'Task Management System' to be loaded, you must have in place
+the correct HTTP method selected (GET), baseurl and the resource.
+
+
+Scenario: Verify that a user can populate a new record to project endpoint
+Given that Task Management System is loaded
+When a user carry out POST request
+Then a new Project record should be created
+And the status code should be equal to 201 Created
+And the response time should be less or equal to 300ms
+
+Note (pre-requisite): For 'Task Management System' to be loaded, you must have in place
+the correct HTTP method selected (POST), baseurl, the resource and the body (which can 
+either be Json or XML)
+
+
+Scenario: Verify that a user can modify an existing record in a project endpoint
+Given that Task Management System is loaded
+When a user carry out PUT request
+Then an existing project record should be updated
+And the status code should be equal to 204 No Content
+And the response time should be less or equal to 250ms
+
+Note (pre-requisite): For 'Task Management System' to be loaded, you must have in place
+the correct HTTP method selected (PUT), baseurl, the resource and the body (which can 
+either be Json or XML).
+
+
+Scenario: Verify that a user can delete an project record
+Given that Task Management System is loaded
+When a user carry out DELETE request
+Then an existing Project record should be deleted
+And the status code should be equal to 200 OK
+And the response time should be less or equal to 100ms
+
+Note (pre-requisite): For 'Task Management System' to be loaded, you must have in place
+the correct HTTP method selected (DELETE), baseurl and the resource.
+
+
+
+
+
+
+
+
